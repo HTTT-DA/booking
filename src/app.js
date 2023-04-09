@@ -6,14 +6,16 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require("cors");
 
-const redis = require('./config/connect-to-redis.js');
-const cassandra = require('./config/connect-to-cassandra');
-const mongodb = require('./config/connect-to-mongodb');
-const usersRouter = require('./api/user/user-router');
+// const redis = require('./config/connect-to-redis.js');
+// const cassandra = require('./config/connect-to-cassandra');
+// const mongodb = require('./config/connect-to-mongodb');
+const mssql = require('./config/connect-to-mssql');
+const usersRouter = require("./api/user/user-router");
 
 /*redis.connect().then(r => console.log('Redis connected'));
 cassandra.connect().then(c => console.log('Cassandra connected'));
 mongodb.connect().then(m => console.log('MongoDB connected'));*/
+mssql.getConnection()
 
 const app = express();
 
@@ -39,6 +41,10 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
+  res.json({
+    message: err.message,
+    error: err,
+  });
   res.render('error');
 });
 
