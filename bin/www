@@ -5,7 +5,7 @@
  */
 
 var app = require('../src/app');
-var debug = require('debug')('server:server');
+var debug = require('debug')('booking:booking');
 var http = require('http');
 
 /**
