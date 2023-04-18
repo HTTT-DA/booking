@@ -20,10 +20,8 @@
 <header class="site-header js-site-header">
 	<div class="container-fluid">
 		<div class="row align-items-center">
-			<div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="#">Booking</a></div>
+			<div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="#">Booking.com</a></div>
 			<div class="col-6 col-lg-8">
-
-
 				<div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
 					<span></span>
 					<span></span>
@@ -53,7 +51,93 @@
 		</div>
 	</div>
 </header>
-<!-- END head -->
+
+<section class="site-hero overlay" style="background-color: #004daa !important" data-stellar-background-ratio="0.5">
+	<div class="container">
+		<div class="row site-hero-inner justify-content-center align-items-center">
+			<div class="col-md-10 text-center" data-aos="fade-up">
+				<h1 class="heading">Where to next</h1>
+				<span class="custom-caption text-uppercase text-white d-block  mb-3">Find exclusive Genius rewards in every corner of the world!</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section bg-light pb-0"  >
+	<div class="container">
+		<div class="row check-availabilty" id="next">
+			<div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+				<form action="#">
+					<div class="row">
+						<div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+							<label for="location" class="font-weight-bold text-black">Location</label>
+							<div class="field-icon-wrap">
+								<input type="text" placeholder="Where are you going" id="location" >
+							</div>
+						</div>
+						<div class="col-md-6 mb-3 mb-lg-0 col-lg-2">
+							<label for="checkin_date" class="font-weight-bold text-black">Check In</label>
+							<div class="field-icon-wrap">
+								<div class="icon"><span class="icon-calendar"></span></div>
+								<input type="date" id="checkin_date">
+							</div>
+						</div>
+						<div class="col-md-6 mb-3 mb-lg-0 col-lg-2">
+							<label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
+							<div class="field-icon-wrap">
+								<div class="icon"><span class="icon-calendar"></span></div>
+								<input type="date" id="checkout_date">
+							</div>
+						</div>
+						<div class="col-md-6 mb-3 mb-md-0 col-lg-2">
+							<div class="row">
+								<div class="col-md-6 mb-3 mb-md-0">
+									<label for="adults" class="font-weight-bold text-black">Adults</label>
+									<div class="field-icon-wrap">
+										<input type="number" id="adults" style="width: 60px;"/>
+									</div>
+								</div>
+								<div class="col-md-6 mb-3 mb-md-0">
+									<label for="children" class="font-weight-bold text-black">Children</label>
+									<div class="field-icon-wrap">
+										<input type="number" id="children" style="width: 60px;"/>
+									</div>
+								</div>
+								<div class="col-md-6 mb-3 mb-md-0">
+									<label for="room" class="font-weight-bold text-black">Room</label>
+									<div class="field-icon-wrap">
+										<input type="number" id="room" style="width: 60px;"/>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-3 align-self-end">
+							<a class="btn btn-info" href="/property">Search</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 mb-3 mb-lg-0 col-lg-4">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+								<label class="form-check-label" for="defaultCheck1">
+									I'm looking for an entire house or apartment
+								</label>
+							</div>
+						</div>
+						<div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+								<label class="form-check-label" for="defaultCheck1">
+									I'm traveling for work
+								</label>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
 
 {{{body}}} <!-- body -->
 
@@ -95,12 +179,6 @@
 			</div>
 		</div>
 		<div class="row pt-5">
-			<p class="col-md-6 text-left">
-				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-				Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-			</p>
-
 			<p class="col-md-6 text-right social">
 				<a href="#"><span class="fa fa-tripadvisor"></span></a>
 				<a href="#"><span class="fa fa-facebook"></span></a>

@@ -1,5 +1,6 @@
 const sql = require('mssql');
 
+// Khoa: DESKTOP-G51F95O
 const config = {
     user: 'sa',
     password: '1',
@@ -14,7 +15,6 @@ const config = {
 const poolPromise = new sql.ConnectionPool(config)
     .connect()
     .then(pool => {
-        console.log('Connected to MSSQL');
         return pool;
     })
     .catch(err => console.log('Database connection failed!', err));

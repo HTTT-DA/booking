@@ -1,5 +1,6 @@
 const sql = require('mssql');
 
+// Khoa: DESKTOP-G51F95O
 const config = {
     user: 'sa',
     password: '1',
