@@ -6,18 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 
-const indexRouter = require('./router/router');
-
-/*const redis = require('./config/connect-to-redis.js');
-const cassandra = require('./config/connect-to-cassandra');
-const mongodb = require('./config/connect-to-mongodb');
-const mssql = require('./config/connect-to-mssql');
-const usersRouter = require("./components/user/user-router");
-
-redis.connect().then(r => console.log('Redis connected'));
-cassandra.connect().then(c => console.log('Cassandra connected'));
-mongodb.connect().then(m => console.log('MongoDB connected'));
-mssql.getConnection()*/
+const indexRouter = require('./router');
 
 const app = express();
 
