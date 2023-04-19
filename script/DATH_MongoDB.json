@@ -1,0 +1,90 @@
+db.createCollection(PropertyDetail)
+db.PropertyDetail.insert(
+{
+   "_id":"",
+   "property_type":"",
+   "name":"",
+   "avatar_url":"",
+   "address":"",
+   "place_type":"",
+   "info":"",
+   "longitude":"",
+   "latitude":"",
+   "check_in_start":"",
+   "check_in_end":"",
+   "check_out_start":"",
+   "check_out_end":"",
+   "cancellation":"",
+   "deposit":"",
+   "pet_available":"",
+   "city":"",
+   "region":"",
+   "children_policy":[
+      {
+         "_id":"",
+         "content":""
+      }
+   ],
+   "bed_policy": [
+      {
+         "_id":"",
+         "content":""
+      }
+   ],
+   "accepted_payment":[
+      {
+         "_id":"",
+         "name":"",
+         "icon":""
+      }
+   ],
+   "images":[
+      {
+         "_id":"",
+         "url":""
+      }
+   ],
+   "facilities":[
+      {
+         "_id":"",
+         "icon":"",
+        "list": ["", "", ""]
+      }
+   ],   
+    "accommodations": [4,5],
+    "question":[
+{
+  _id:
+  "question":
+  "answer":
+  "date":
+}
+    ]
+}
+)
+db.createCollection(Accomodation)
+db.Accomodation.insert(
+{
+  _id:
+  "name":""
+  "price":
+  "sale_off":
+  "sleeps":
+  "quantity":
+  "policy":[
+    "name":
+    "policy_type":
+  ],
+  "image":[
+    "url":
+    "title"
+  ]
+  "facility":[
+   {
+      "name"
+      "icon"
+      "list":["",""]
+    }
+  ]
+}
+)
