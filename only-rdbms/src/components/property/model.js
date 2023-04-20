@@ -12,4 +12,15 @@ module.exports = function () {
             return err.message;
         }
     };
+
+    this.getPropertyDetail = async () => {
+        try {
+            const pool = await poolPromise;
+            const result = await pool.request()
+                .query('SELECT * FROM property');
+            return result.recordset;
+        } catch (err) {
+            return err.message;
+        }
+    }
 };
