@@ -1,18 +1,22 @@
 <section style="background-color: #eee;">
 	<div class="container py-5">
-		<h1>Name of property</h1>
-		<p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>address of property</p>
+		<h1>{{property.detail.name}}</h1>
+		<p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>{{property.detail.address}}</p>
 
 		<div class="row">
 			<div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
 				<img
-						src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+						src="{{property.images.[0].url}}"
+						width="170"
+						height="255"
 						class="w-100 shadow-1-strong rounded mb-4"
 						alt="Boat on Calm Water"
 				/>
 
 				<img
-						src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
+						src="{{property.images.[1].url}}"
+						width="255"
+						height="388"
 						class="w-100 shadow-1-strong rounded mb-4"
 						alt="Wintry Mountain Landscape"
 				/>
@@ -20,13 +24,17 @@
 
 			<div class="col-lg-4 mb-4 mb-lg-0">
 				<img
-						src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
+						src="{{property.images.[2].url}}"
+						width="255"
+						height="388"
 						class="w-100 shadow-1-strong rounded mb-4"
 						alt="Mountains in the Clouds"
 				/>
 
 				<img
-						src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+						src="{{property.images.[3].url}}"
+						width="170"
+						height="255"
 						class="w-100 shadow-1-strong rounded mb-4"
 						alt="Boat on Calm Water"
 				/>
@@ -34,43 +42,34 @@
 
 			<div class="col-lg-4 mb-4 mb-lg-0">
 				<img
-						src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
+						src="{{property.images.[4].url}}"
+						width="170"
+						height="255"
 						class="w-100 shadow-1-strong rounded mb-4"
 						alt="Waves at Sea"
 				/>
 
 				<img
-						src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
+						src="{{property.images.[5].url}}"
+						width="255"
+						height="388"
 						class="w-100 shadow-1-strong rounded mb-4"
 						alt="Yosemite National Park"
 				/>
 			</div>
 		</div>
 		<div>
-			<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Cras mattis pannenkoek purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.
-				Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Cras mattis pannenkoek purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum
-				Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Cras mattis pannenkoek purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.
-				Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Cras mattis pannenkoek purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras mattis consectetur purus sit amet fermentum.</p>
+			<p> {{property.detail.info}}</p>
 			<h5>Most popular facilities</h5>
 			<div>
+				{{#each property.popularFacilities}}
 				<div class="d-inline-block">
 					<div class="d-inline-block p-2">
-						<i class="fas fa-wifi" style="color:#80c54e;"></i>
+						<i class="{{icon}}" style="color:#80c54e;"></i>
 					</div>
-					<div class="d-inline-block p-2">Free Wifi</div>
+					<div class="d-inline-block p-2">{{name}}</div>
 				</div>
-				<div class="d-inline-block">
-					<div class="d-inline-block p-2">
-						<i class="fas fa-wifi" style="color:#80c54e;"></i>
-					</div>
-					<div class="d-inline-block p-2">Free Wifi</div>
-				</div>
-				<div class="d-inline-block">
-					<div class="d-inline-block p-2">
-						<i class="fas fa-wifi" style="color:#80c54e;"></i>
-					</div>
-					<div class="d-inline-block p-2">Free Wifi</div>
-				</div>
+				{{/each}}
 			</div>
 		</div>
 	</div>
@@ -90,44 +89,33 @@
 			</tr>
 			</thead>
 			<tbody>
-			<tr>
-				<td>
-					<div class="d-flex align-items-center">
-						<a><h5><u>Superior Double Room</u></h5></a>
-						<p class="small">1 room left</p>
-					</div>
-					<div class="d-inline-block">
-						<div class="d-inline-block p-2">
-							<i class="fas fa-wifi" style="color:#80c54e;"></i>
+			{{#each property.accommodations}}
+				<tr>
+					<td>
+						<div class="d-flex align-items-center">
+							<a><h5><u>{{name}}</u></h5></a>
+							<p class="small">{{quantity}} room lefts</p>
 						</div>
-						<div class="d-inline-block p-2 small" >Free Wifi</div>
-					</div>
-					<div class="d-inline-block">
-						<div class="d-inline-block p-2">
-							<i class="fas fa-wifi" style="color:#80c54e;"></i>
-						</div>
-						<div class="d-inline-block p-2 small" >Free Wifi</div>
-					</div>
-				</td>
-				<td>
-					<i class="fa fa-user" aria-hidden="true"></i>
-					<i class="fa fa-user" aria-hidden="true"></i>
-				</td>
-				<td>
-					<h5 class="mb-1 me-1">$13.99</h5>
-					<span class="text-danger"><s>$20.99</s></span>
-				</td>
-				<td>
-					<label>
-						<input type="number" style="width: 50px">
-					</label>
-				</td>
-				<td>
-					<button type="button" class="btn btn-link btn-sm btn-rounded">
-						I'll reserve
-					</button>
-				</td>
-			</tr>
+					</td>
+					<td>
+						{{sleeps}}<i class="fa fa-user" aria-hidden="true"></i>
+					</td>
+					<td>
+						<h5 class="mb-1 me-1">${{price_after_sale_off}}</h5>
+						<span class="text-danger"><s>${{price}}</s></span>
+					</td>
+					<td>
+						<label>
+							<input type="number" style="width: 50px">
+						</label>
+					</td>
+					<td>
+						<button type="button" class="btn btn-primary btn-sm btn-rounded">
+							I'll reserve
+						</button>
+					</td>
+				</tr>
+			{{/each}}
 			</tbody>
 		</table>
 	</div>
@@ -137,60 +125,28 @@
 	<div class="container py-5">
 		<h2>Guest reviews</h2>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<div class="d-flex flex-start align-items-center">
-							<img class="rounded-circle shadow-1-strong me-3"
-								 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="60"
-								 height="60" />
-							<div>
-								<h6 class="fw-bold text-primary mb-1">Lily Coleman</h6>
-								<p class="text-muted small mb-0">
-									Vietnam
-								</p>
+			{{#each property.reviews}}
+				<div class="col">
+					<div class="card h-100 w-200">
+						<div class="card-body">
+							<div class="d-flex flex-start align-items-center">
+								<img class="rounded-circle shadow-1-strong me-3"
+									 src="{{avatar}}" alt="avatar" width="60"
+									 height="60" />
+								<div>
+									<h6 class="fw-bold text-primary mb-1">{{display_name}}</h6>
+									<p class="text-truncate small w-200">
+										{{language}}
+									</p>
+								</div>
 							</div>
+							<h5 class="card-text">{{title}}</h5>
+							<p class="card-text">"{{comment}}"</p>
+							<small class="card-text">{{date}} with <strong>{{score}}/10 scores</strong></small>
 						</div>
-						<p class="card-text">"The room is very tidy and the view from the balcony is gorgeous"</p>
 					</div>
 				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<div class="d-flex flex-start align-items-center">
-							<img class="rounded-circle shadow-1-strong me-3"
-								 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="60"
-								 height="60" />
-							<div>
-								<h6 class="fw-bold text-primary mb-1">Lily Coleman</h6>
-								<p class="text-muted small mb-0">
-									Vietnam
-								</p>
-							</div>
-						</div>
-						<p class="card-text">"The room is very tidy and the view from the balcony is gorgeous"</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<div class="d-flex flex-start align-items-center">
-							<img class="rounded-circle shadow-1-strong me-3"
-								 src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="60"
-								 height="60" />
-							<div>
-								<h6 class="fw-bold text-primary mb-1">Lily Coleman</h6>
-								<p class="text-muted small mb-0">
-									Vietnam
-								</p>
-							</div>
-						</div>
-						<p class="card-text">"The room is very tidy and the view from the balcony is gorgeous"</p>
-					</div>
-				</div>
-			</div>
+			{{/each}}
 		</div>
 		<button type="button" class="btn btn-link btn-sm btn-rounded float-right">
 			See all reviews
@@ -202,51 +158,24 @@
 	<div class="container py-5">
 		<h2>Property questions and answers</h2>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<div>
-							<p class="card-text"><span><u>User ask</u>: </span>"The room is very tidy and the view from the balcony is gorgeous"</p>
+			{{#each property.questionAndAnswers}}
+				<div class="col">
+					<div class="card h-100 w-200">
+						<div class="card-body">
+							<div>
+								<p class="card-text"><span><u>User ask</u>: </span>"{{question}}"</p>
+							</div>
+							<br>
+							<div>
+								<p class="card-text"><span><u>Answer</u>: </span>"{{answer}}"</p>
+							</div>
+							<p class="mb-0 small float-right">
+								{{date}}
+							</p>
 						</div>
-						<div>
-							<p class="card-text"><span><u>Answer</u>: </span>"Hehe"</p>
-						</div>
-						<p class="mb-0 small float-right">
-							March 07, 2021
-						</p>
 					</div>
 				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<div>
-							<p class="card-text"><span><u>User ask</u>: </span>"The room is very tidy and the view from the balcony is gorgeous"</p>
-						</div>
-						<div>
-							<p class="card-text"><span><u>Answer</u>: </span>"Hehe"</p>
-						</div>
-						<p class="mb-0 small float-right">
-							March 07, 2021
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-					<div class="card-body">
-						<div>
-							<p class="card-text"><span><u>User ask</u>: </span>"The room is very tidy and the view from the balcony is gorgeous"</p>
-						</div>
-						<div>
-							<p class="card-text"><span><u>Answer</u>: </span>"Hehe"</p>
-						</div>
-						<p class="mb-0 small float-right">
-							March 07, 2021
-						</p>
-					</div>
-				</div>
-			</div>
+			{{/each}}
 		</div>
 		<button type="button" class="btn btn-link btn-sm btn-rounded float-right">
 			Ask a question
@@ -256,28 +185,18 @@
 
 <section style="background-color: #eee;">
 	<div class="container py-5">
-		<h2>Facilities of Moonlight Bay</h2>
-		<p>Review score: 8.8</p>
+		<h2>Facilities of {{property.detail.name}}</h2>
+		<p>Review score: {{property.detail.point_avg}}</p>
 		<h5>Most popular facilities</h5>
 		<div>
-			<div class="d-inline-block">
-				<div class="d-inline-block p-2">
-					<i class="fas fa-wifi" style="color:#80c54e;"></i>
+			{{#each property.detail.popularFacilities}}
+				<div class="d-inline-block">
+					<div class="d-inline-block p-2">
+						<i class="{{icon}}" style="color:#80c54e;"></i>
+					</div>
+					<div class="d-inline-block p-2" >{{name}}</div>
 				</div>
-				<div class="d-inline-block p-2" >Free Wifi</div>
-			</div>
-			<div class="d-inline-block">
-				<div class="d-inline-block p-2">
-					<i class="fas fa-wifi" style="color:#80c54e;"></i>
-				</div>
-				<div class="d-inline-block p-2">Free Wifi</div>
-			</div>
-			<div class="d-inline-block">
-				<div class="d-inline-block p-2">
-					<i class="fas fa-wifi" style="color:#80c54e;"></i>
-				</div>
-				<div class="d-inline-block p-2">Free Wifi</div>
-			</div>
+			{{/each}}
 		</div>
 		<br>
 		<div>
@@ -289,10 +208,12 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<th scope="row"><strong>"icon" Bathroom</strong></th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
-				</tr>
+				{{#each property.facilities}}
+					<tr>
+						<th scope="row"><strong><i class="{{icon}}"></i> {{type}}</strong></th>
+						<td>{{str}}</td>
+					</tr>
+				{{/each}}
 				</tbody>
 			</table>
 		</div>
@@ -307,35 +228,43 @@
 				<tbody>
 				<tr>
 					<th scope="row" style="width: 300px">Check-in</th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
+					<td> {{property.detail.check_in_start}} -> {{property.detail.check_in_end}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Check-out</th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
+					<td> {{property.detail.check_out_start}} -> {{property.detail.check_out_end}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Cancellation/prepayment</th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
+					<td> {{property.detail.cancellation}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Refundable damage deposit</th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
+					<td>{{property.detail.deposit}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Children & Beds</th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
+					<td>
+						{{#each property.childrenPolicy}}
+							<p>{{content}}</p>
+						{{/each}}
+					</td>
 				</tr>
 				<tr>
-					<th scope="row" style="width: 300px">No age restriction</th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
-				</tr>
-				<tr>
-					<th scope="row" style="width: 300px">Pets</th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
+					<th scope="row" style="width: 300px">Beds</th>
+					<td>
+						{{#each property.bedPolicy}}
+							<p>{{content}}</p>
+						{{/each}}
+					</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Cards accepted at this hotel</th>
-					<td>a,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,fa,b,c,d,c,adf,a,fa,fa,fa,f</td>
+					<td>
+						{{#each property.acceptedPayment}}
+							<p><i class="{{icon}}"></i>{{name}}</p>
+						{{/each}}
+					</td>
 				</tr>
 				</tbody>
 			</table>
