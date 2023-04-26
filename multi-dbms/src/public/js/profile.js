@@ -179,7 +179,7 @@ function editField(fieldname) {
 
         case 'currency':
             {
-                if(document.getElementById('curr-edit').getAttribute('class') === 'setting-row-field-edit')
+                if(document.getElementById('cur-edit').getAttribute('class') === 'setting-row-field-edit')
                 {
                     document.getElementById('cur-edit').setAttribute('class', 'setting-row-field-edit-hide');
                     document.getElementById('cur-value').setAttribute('class', 'setting-row-field-value');
