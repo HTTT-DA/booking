@@ -4,7 +4,7 @@
     width: 0;
     font-family: Segoe UI;
     font-weight: 400;
-    font-size: large;
+    font-size: medium ;
     line-height: 30px;
   }
   
@@ -32,6 +32,7 @@
   
   .personal-detail-title-description {
     margin-top: 8px;
+    font-size: 16px;
   }
   
   .personal-detail-avatar {
@@ -71,10 +72,13 @@
     position: relative;
     white-space: normal;
     width: 146px;
+    padding-left: 35px;
+    font-size: 18px;
   }
   
   .setting-row-field-col-field {
     padding-left: 16px;
+    font-size: 18px;
   }
   
   .setting-section-menu {
@@ -112,11 +116,37 @@
     line-height: 20px;
   }
 
-  .setting-row-field-col-field-edit {
+  .setting-row-field-edit {
     padding: 10px;
   }
 
+  .setting-row-field-edit-hide {
+    display: none;
+  }
+
+  .setting-row-field-value-hide {
+    display: none;
+  }
+
+  .setting-row-field-value {
+    margin: 10px;
+    font-size: 18px;
+  }
+
   .button-save {
+    background: #006ce4;
+    border: 0;
+    border-radius: 4px;
+    text-align: end;
+    color: #ffffff;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: end;
+    padding: 10px 10px;
+  }
+
+  .button-edit-cancel {
     background: transparent;
     border: 0;
     box-sizing: border-box;
@@ -124,10 +154,24 @@
     text-align: end;
     color: #006ce4;
     position: relative;
-    text-align: left;
     text-decoration: none;
     vertical-align: middle;
+    align-items: end;
+    display: end;
     padding: 10px 10px;
+    margin-bottom: 20px;
+  }
+
+  .button-edit-cancel:hover {
+    background: #deecfb;
+  }
+
+  .button-edit-cancel-hide {
+    display: none;
+  }
+
+  .button-save-hide {
+    display:none;
   }
 
   .button-save:active {
@@ -141,4 +185,17 @@
   .button-save:hover {
     background-color: #57a6f4;
     color:#ffffff;
+  }
+
+  .my-border-right-hide {
+    display: none;
+  }
+
+  .setting-section-menu-button {
+    background-color: transparent;
+    border: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: left;
   }

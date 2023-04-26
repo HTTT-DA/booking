@@ -1,0 +1,526 @@
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 my-border-right">
+            <ul class = "setting-section-menu">
+                <li class="setting-section-menu-wrapper">
+                    <div class="setting-section-menu-list">
+						<button class="setting-section-menu-button" onclick ="editSection('personal_detail')">Personal detail</button>
+					</div>
+                </li>
+                <li class="setting-section-menu-wrapper-final">
+					<div class="setting-section-menu-list">
+						<button class="setting-section-menu-button" onclick ="editSection('reference')">Reference</button>
+					</div>
+				</li>
+            </ul>
+        </div>
+        <div class="col my-border-right" id="personal-detail">
+            <div>
+                <div class="row-mt-3 personal-detail">
+					<div class="col-md-10 personal-detail-title">
+                        <div class="personal-detail-title-main">Personal detail</div>
+                        <div class="personal-detail-title-description">Update your info and find out how it's used.</div>
+                    </div>
+
+                    <button class="col-md-2 personal-detail-avatar" aria-label="Change avatar">
+                        <div class="personal-detail-avatar-wrapper">
+                            <img class="    rounded-circle" width="70px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg" loading="lazy">
+                        </div>
+                    </button>
+                </div>
+
+				<!-- Name -->
+                <div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Name</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="name-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="name-edit">
+							<div class="row mt-2">
+								<div class="col-md-6"><label class="my-labels">First Name</label><input type="text" class="form-control" placeholder="First name" value=""></div>
+								<div class="col-md-6"><label class="my-labels">Last name</label><input type="text" class="form-control" placeholder="Last name" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-2">
+							<button class="button-edit-cancel" id="btn-name-edit" onclick="editField('name')">Edit</button>
+						</div>
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-name-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!-- Display name -->
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Display name</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="dname-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="dname-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Display name</label><input type="text" class="form-control" placeholder="Display name" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-dname-edit" onclick="editField('display_name')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-dname-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+                <!--- 
+                    TODO: Write 
+                    
+                --->
+
+                <!-- Email address -->
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Email address</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="email-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="email-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Display name</label><input type="text" class="form-control" placeholder="Display name" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-email-edit" onclick="editField('email_address')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-email-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+                <!-- Phone number -->
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Phone number</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="phone-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="phone-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Phone number</label><input type="text" class="form-control" placeholder="Phone number" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-phone-edit" onclick="editField('phone')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-phone-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+                <!-- DOB -->
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Date of birth</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="dob-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="dob-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Date of birth</label><input type="text" class="form-control" placeholder="Date of birth" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-dob-edit" onclick="editField('dob')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-dob-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+                <!-- Nationality -->
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Nationality</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="nal-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="nal-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Nationality</label><input type="text" class="form-control" placeholder="Nationality" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-nal-edit" onclick="editField('nal')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-nal-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!-- Gender -->
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Gender</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="gen-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="gen-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Gender</label><input type="text" class="form-control" placeholder="Gender" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-gen-edit" onclick="editField('gender')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-gen-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!-- Address -->
+
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Address</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="addr-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="addr-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Address</label><input type="text" class="form-control" placeholder="Gender" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-addr-edit" onclick="editField('address')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-addr-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!-- Currency -->
+
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Currency</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="cur-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="cur-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Currency</label><input type="text" class="form-control" placeholder="Currency" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-cur-edit" onclick="editField('currency')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-cur-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!-- Password -->
+
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Password</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="pass-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="pass-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Password</label><input type="text" class="form-control" placeholder="Password" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-pass-edit" onclick="editField('password')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-pass-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+
+				
+                
+            </div>
+        </div>
+		<!-- REFERENCE -->
+		<div class="col my-border-right-hide" id="reference">
+            <div>
+                <div class="row-mt-3 personal-detail">
+					<div class="col-md-10 personal-detail-title">
+                        <div class="personal-detail-title-main">Reference</div>
+                        <div class="personal-detail-title-description">Change your language, currency, and accessibility requirements.</div>
+                    </div>
+                </div>
+
+				<!--Payment method -->
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Payment method</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="paymed-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="paymed-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Payment method</label><input type="text" class="form-control" placeholder="Payment method" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-paymed-edit" onclick="editField('payment_method')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-paymed-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!--Cardholder name -->
+
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Cardholder name</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="chdn-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="chdn-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Cardholder name</label><input type="text" class="form-control" placeholder="Display name" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-chdn-edit" onclick="editField('cardholder_name')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-chdn-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!--Card number -->
+
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Card number</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="cnum-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="cnum-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Card number</label><input type="text" class="form-control" placeholder="Card number" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-cnum-edit" onclick="editField('card_number')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-cnum-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!--expiry -->
+
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">Expiry date</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="exp-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="exp-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">Expiry date</label><input type="text" class="form-control" placeholder="Expiry date" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-exp-edit" onclick="editField('exp')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-exp-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+
+				<!--cvc -->
+
+				<div class="row mt-2 setting-row">
+					<div class="col-md-4">
+						<div class="setting-row-field-col-label">CVC</div>
+					</div>
+
+					<div class="row-mt-1 col-md-7">
+						<div class="setting-row-field-value" id="cvc-value">
+							<div class="col-md-6">
+								<div class="">Some value</div>
+							</div>
+						</div>
+
+						<div class="setting-row-field-edit-hide" id="cvc-edit">
+							<div class="row mt-2">
+								<div class="col-md-10"><label class="my-labels">CVC</label><input type="text" class="form-control" placeholder="CVC" value=""></div>
+							</div>
+						</div>
+					</div>
+					
+                    <div class="col-md-1">
+						<div class="row-mt-1">
+							<button class="button-edit-cancel" id="btn-cvc-edit" onclick="editField('cvc')">Edit</button>
+						</div>  
+
+						<div class="row-mt-1">
+							<button class="button-save-hide" id="btn-cvc-save" onclick="">Save</button>
+						</div>
+                    </div>
+                </div>
+			</div>
+    </div>
+</div>
