@@ -1,5 +1,9 @@
 const createError = require('http-errors');
 const express = require('express');
+//Loads the handlebars module
+const exphbs = require("express-handlebars");
+const Handlebars = require("handlebars");
+const {allowInsecurePrototypeAccess} = require("@handlebars/allow-prototype-access");
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -7,10 +11,21 @@ const cors = require('cors');
 const app = express();
 const indexRouter = require('./router');
 const propertyRouter = require('./components/property/router');
+const loginRouter = require("./components/login/router");
 
 app.use(express.static(__dirname + '/public'));
+app.set("view engine", "hbs");
+//Sets handlebars configurations (we will go through them later on)
+const hbs = exphbs.create({
+  layoutsDir: __dirname + "/views",
+  extname: "hbs",
+  defaultLayout: "layout",
+  handlebars: allowInsecurePrototypeAccess(Handlebars),
+  partialsDir: __dirname + "/views/partials/",
+});
+app.engine('hbs', hbs.engine);
+
 app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, "components")]);
-app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -21,6 +36,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/property', propertyRouter);
+app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
