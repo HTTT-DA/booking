@@ -1,0 +1,87 @@
+<style>
+	@media (max-width: 767.98px) { .border-sm-start-none { border-left: none !important; } }
+</style>
+
+<section style="background-color: #eee;">
+	<div class="container py-5">
+		<div class="row justify-content-center mb-3">
+			<div class="col-md-12 col-xl-10">
+				{{#each properties}}
+					<div class="card shadow-0 border rounded-3">
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+								<div class="bg-image hover-zoom ripple rounded ripple-surface">
+									<img src="{{avatar_url}}" width="400" height="200"
+										 class="w-100"  alt=""/>
+									<a href="#">
+										<div class="hover-overlay">
+											<div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="col-md-6 col-lg-6 col-xl-6">
+								<h5>{{name}}</h5>
+								<div class="d-flex flex-row">
+									<div class="text-danger mb-1 me-2">
+										{{rating_star}} <i class="fa fa-star" aria-hidden="true"></i>
+									</div>
+								</div>
+								<p class=" mb-4 mb-md-0">
+									{{info}}
+								</p>
+							</div>
+							<div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+								<div class="d-flex flex-row align-items-center mb-1">
+									<h4 class="mb-1 me-1">${{price_after_sale_off}}</h4>
+									<span class="text-danger"><s>${{price}}</s></span>
+								</div>
+								<small class="text-success">{{review_count}}</small>
+								<small>{{point_avg}} points</small>
+								<div class="d-flex flex-column mt-4">
+									<a class="btn btn-primary btn-sm" href="/property/{{id}}">See availability</a>
+									<button class="btn btn-outline-primary btn-sm mt-2" type="button">
+										<i class="fa fa-heart-o" aria-hidden="true"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	<div class="container py-5">
+		<div class="row justify-content-center mb-3">
+			<div class="row">
+				<div class="col-lg-12">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination" style="display: flex; justify-content: right;" id="pagination">
+							<li class="page-item" style="{{paging.disablePrev}} " >
+								<a class="page-link" href="/property?location={{properties.[0].city}}&page={{paging.prev}}" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+									<span class="sr-only">Previous</span>
+								</a>
+							</li>
+							<li class="page-item {{paging.hiddenPrev}}" style="{{paging.disablePrev}} {{paging.numberPrev}}">
+								<a  class="page-link">
+									{{paging.prev}}
+								</a>
+							</li>
+							<li class="page-item active"><a class="page-link">{{paging.page}}</a></li>
+							<li class="page-item"><a class="page-link" href="/property?location={{properties.[0].city}}&page={{paging.next}}">{{paging.next}}</a></li>
+							<li class="page-item">
+								<a class="page-link" href="/property?location={{properties.[0].city}}&page={{paging.prev}}" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+									<span class="sr-only">Next</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
