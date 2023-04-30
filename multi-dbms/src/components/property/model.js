@@ -11,9 +11,8 @@ module.exports = function () {
                 `SELECT DISTINCT 
                      Property.name, Property.avatar_url, Property.info, Property.review_count,
                      Property.id, Property.point_avg, Property.rating_star, Property.city,
-                     ROUND(Accommodation.price,1) as price, ROUND((Accommodation.price - Accommodation.sale_off),1) as price_after_sale_off
+                     ROUND(Property.price, 1) as price, ROUND((Property.price - Property.sale_off),1) as price_after_sale_off
                  FROM Property
-                     JOIN Accommodation on Property.id = Accommodation.property_id
                  WHERE [city] = '${search.location}'
                  AND Property.property_type = 'Country houses' OR Property.property_type = 'Apartments'
                  ORDER BY id
@@ -23,9 +22,8 @@ module.exports = function () {
                 `SELECT DISTINCT 
                     Property.name, Property.avatar_url, Property.info, Property.review_count, 
                     Property.id, Property.point_avg, Property.rating_star, Property.city,
-                    ROUND(Accommodation.price, 1) as price, ROUND((Accommodation.price - Accommodation.sale_off),1) as price_after_sale_off
+                    ROUND(Property.price, 1) as price, ROUND((Property.price - Property.sale_off),1) as price_after_sale_off
                  FROM Property
-                    JOIN Accommodation on Property.id = Accommodation.property_id
                  WHERE [city] = '${search.location}'
                  ORDER BY id
                  OFFSET 0 + 10 * ${search.page - 1} ROWS

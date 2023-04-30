@@ -1,6 +1,5 @@
 const createError = require('http-errors');
 const express = require('express');
-//Loads the handlebars module
 const exphbs = require("express-handlebars");
 const Handlebars = require("handlebars");
 const {allowInsecurePrototypeAccess} = require("@handlebars/allow-prototype-access");
@@ -15,7 +14,7 @@ const loginRouter = require("./components/login/router");
 
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
-//Sets handlebars configurations (we will go through them later on)
+
 const hbs = exphbs.create({
   layoutsDir: __dirname + "/views",
   extname: "hbs",

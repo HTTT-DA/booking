@@ -5,7 +5,7 @@ const config = {
     user: 'sa',
     password: '1',
     server: 'DESKTOP-G51F95O',
-    database: 'BookingWithoutNoSQL',
+    database: 'BookingWithNoSQL',
     options: {
         encrypt: true,
         trustServerCertificate: true
@@ -15,7 +15,6 @@ const config = {
 const poolPromise = new sql.ConnectionPool(config)
     .connect()
     .then(pool => {
-        console.log('Connected to MSSQL');
         return pool;
     })
     .catch(err => console.log('Database connection failed!', err));
