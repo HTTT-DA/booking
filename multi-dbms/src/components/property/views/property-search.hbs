@@ -65,7 +65,7 @@
 									<span class="sr-only">Previous</span>
 								</a>
 							</li>
-							<li class="page-item {{paging.hiddenPrev}}" style="{{paging.disablePrev}} {{paging.numberPrev}}">
+							<li class="page-item" {{paging.hiddenPrev}} style="{{paging.disablePrev}} {{paging.numberPrev}}">
 								<a  class="page-link">
 									{{paging.prev}}
 								</a>
@@ -73,7 +73,7 @@
 							<li class="page-item active"><a class="page-link">{{paging.page}}</a></li>
 							<li class="page-item"><a class="page-link" href="/property?location={{properties.[0].city}}&page={{paging.next}}">{{paging.next}}</a></li>
 							<li class="page-item">
-								<a class="page-link" href="/property?location={{properties.[0].city}}&page={{paging.prev}}" aria-label="Next">
+								<a class="page-link" href="/property?location={{properties.[0].city}}&page={{paging.next}}" aria-label="Next">
 									<span aria-hidden="true">&raquo;</span>
 									<span class="sr-only">Next</span>
 								</a>

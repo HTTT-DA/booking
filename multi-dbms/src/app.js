@@ -11,6 +11,9 @@ const app = express();
 const indexRouter = require('./router');
 const propertyRouter = require('./components/property/router');
 
+const mongoDB = require('./config/connect-to-mongodb');
+mongoDB.connect().catch((err) => {console.log(err)});
+
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
 
@@ -21,8 +24,8 @@ const hbs = exphbs.create({
   handlebars: allowInsecurePrototypeAccess(Handlebars),
   partialsDir: __dirname + "/views/partials/",
 });
-app.engine('hbs', hbs.engine);
 
+app.engine('hbs', hbs.engine);
 app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, "components")]);
 app.use(logger('dev'));
 app.use(express.json());
@@ -30,7 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
-
 
 app.use('/', indexRouter);
 app.use('/property', propertyRouter);

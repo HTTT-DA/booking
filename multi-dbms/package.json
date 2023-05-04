@@ -16,6 +16,7 @@
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "http-errors": "~1.6.3",
+    "mongoose": "^7.1.0",
     "morgan": "~1.9.1",
     "mssql": "^9.1.1",
     "pug": "^3.0.2",

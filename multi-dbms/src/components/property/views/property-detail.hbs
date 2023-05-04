@@ -1,12 +1,12 @@
 <section style="background-color: #eee;">
 	<div class="container py-5">
-		<h1>{{property.detail.name}}</h1>
-		<p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>{{property.detail.address}}</p>
+		<h1>{{property.name}}</h1>
+		<p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>{{property.address}}</p>
 
 		<div class="row">
 			<div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
 				<img
-						src="{{property.images.[0].url}}"
+						src="{{property.images.[1].url}}"
 						width="170"
 						height="255"
 						class="w-100 shadow-1-strong rounded mb-4"
@@ -59,10 +59,10 @@
 			</div>
 		</div>
 		<div>
-			<p> {{property.detail.info}}</p>
+			<p> {{property.info}}</p>
 			<h5>Most popular facilities</h5>
 			<div>
-				{{#each property.popularFacilities}}
+				{{#each property.popular_facilities}}
 				<div class="d-inline-block">
 					<div class="d-inline-block p-2">
 						<i class="{{icon}}" style="color:#80c54e;"></i>
@@ -89,7 +89,7 @@
 			</tr>
 			</thead>
 			<tbody>
-			{{#each property.accommodations}}
+			{{#each accommodations}}
 				<tr>
 					<td>
 						<div class="d-flex align-items-center">
@@ -125,7 +125,7 @@
 	<div class="container py-5">
 		<h2>Guest reviews</h2>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
-			{{#each property.reviews}}
+			{{#each property.review}}
 				<div class="col">
 					<div class="card h-100 w-200">
 						<div class="card-body">
@@ -134,7 +134,7 @@
 									 src="{{avatar}}" alt="avatar" width="60"
 									 height="60" />
 								<div>
-									<h6 class="fw-bold text-primary mb-1">{{display_name}}</h6>
+									<h6 class="fw-bold text-primary mb-1">{{user_name}}</h6>
 									<p class="text-truncate small w-200">
 										{{language}}
 									</p>
@@ -158,7 +158,7 @@
 	<div class="container py-5">
 		<h2>Property questions and answers</h2>
 		<div class="row row-cols-1 row-cols-md-3 g-4">
-			{{#each property.questionAndAnswers}}
+			{{#each property.questions}}
 				<div class="col">
 					<div class="card h-100 w-200">
 						<div class="card-body">
@@ -185,11 +185,11 @@
 
 <section style="background-color: #eee;">
 	<div class="container py-5">
-		<h2>Facilities of {{property.detail.name}}</h2>
-		<p>Review score: {{property.detail.point_avg}}</p>
+		<h2>Facilities of {{property.name}}</h2>
+		<p>Review score: {{property.rating_star}}</p>
 		<h5>Most popular facilities</h5>
 		<div>
-			{{#each property.detail.popularFacilities}}
+			{{#each property.popular_facilities}}
 				<div class="d-inline-block">
 					<div class="d-inline-block p-2">
 						<i class="{{icon}}" style="color:#80c54e;"></i>
@@ -210,8 +210,8 @@
 				<tbody>
 				{{#each property.facilities}}
 					<tr>
-						<th scope="row"><strong><i class="{{icon}}"></i> {{type}}</strong></th>
-						<td>{{str}}</td>
+						<th scope="row"><strong><i class="{{icon}}"></i> {{name}}</strong></th>
+						<td>{{#each list}}<span>{{this}}, </span>{{/each}}</td>
 					</tr>
 				{{/each}}
 				</tbody>
@@ -228,40 +228,32 @@
 				<tbody>
 				<tr>
 					<th scope="row" style="width: 300px">Check-in</th>
-					<td> {{property.detail.check_in_start}} -> {{property.detail.check_in_end}}</td>
+					<td> {{property.check_in_start}} -> {{property.check_in_end}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Check-out</th>
-					<td> {{property.detail.check_out_start}} -> {{property.detail.check_out_end}}</td>
+					<td> {{property.check_out_start}} -> {{property.check_out_end}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Cancellation/prepayment</th>
-					<td> {{property.detail.cancellation}}</td>
+					<td> {{property.cancellation}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Refundable damage deposit</th>
-					<td>{{property.detail.deposit}}</td>
+					<td>{{property.deposit}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Children & Beds</th>
-					<td>
-						{{#each property.childrenPolicy}}
-							<p>{{content}}</p>
-						{{/each}}
-					</td>
+					<td>{{#each property.children_policy}}<span>{{this}}, </span>{{/each}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Beds</th>
-					<td>
-						{{#each property.bedPolicy}}
-							<p>{{content}}</p>
-						{{/each}}
-					</td>
+					<td>{{#each property.bed_policy}}<span>{{this}}, </span>{{/each}}</td>
 				</tr>
 				<tr>
 					<th scope="row" style="width: 300px">Cards accepted at this hotel</th>
 					<td>
-						{{#each property.acceptedPayment}}
+						{{#each property.accepted_payment}}
 							<p><i class="{{icon}}"></i>{{name}}</p>
 						{{/each}}
 					</td>
