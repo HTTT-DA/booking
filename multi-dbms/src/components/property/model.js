@@ -14,8 +14,9 @@ module.exports = function () {
                 ?
                 `SELECT DISTINCT 
                      Property.name, Property.avatar_url, Property.info, Property.review_count,
-                     Property.id, Property.point_avg, Property.rating_star, Property.city,
-                     ROUND(Property.price, 1) as price, ROUND((Property.price - Property.sale_off),1) as price_after_sale_off
+                     Property.id, Property.rating_star, Property.city,
+                     ROUND(Property.point_avg, 1) as point_avg, ROUND(Property.price, 1) as price, 
+                    ROUND((Property.price - Property.sale_off),1) as price_after_sale_off
                  FROM Property
                  WHERE [city] = '${search.location}'
                  AND Property.property_type = 'Country houses' OR Property.property_type = 'Apartments'
@@ -25,8 +26,9 @@ module.exports = function () {
                 :
                 `SELECT DISTINCT 
                     Property.name, Property.avatar_url, Property.info, Property.review_count, 
-                    Property.id, Property.point_avg, Property.rating_star, Property.city,
-                    ROUND(Property.price, 1) as price, ROUND((Property.price - Property.sale_off),1) as price_after_sale_off
+                    Property.id, Property.rating_star, Property.city,
+                    ROUND(Property.point_avg, 1) as point_avg, ROUND(Property.price, 1) as price, 
+                    ROUND((Property.price - Property.sale_off),1) as price_after_sale_off
                  FROM Property
                  WHERE [city] = '${search.location}'
                  ORDER BY id
