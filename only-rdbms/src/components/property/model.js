@@ -58,7 +58,7 @@ module.exports = function () {
                 SET @checkin_date = COALESCE(NULLIF(@checkin_date, ''), @mindate);
                 SET @checkout_date = COALESCE(NULLIF(@checkout_date, ''), @maxdate);
 
-                SELECT 
+                SELECT DISTINCT
                     Property.id,
                     Property.avatar_url,
                     Property.address,
@@ -110,9 +110,7 @@ module.exports = function () {
                     )
 
                 ORDER BY Property.id
-                OFFSET 0 + 10 * ${search.page - 1} ROWS
-                FETCH NEXT 10 ROWS ONLY
-
+            
                 `;
 
             console.log("query");
