@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="/css/fancybox.min.css" type="text/css">
     <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="/css/login.css" type="text/css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+<form id="formLogin" method="POST">
     <div class="container">
         <div class="row">
             <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
@@ -23,23 +26,28 @@
                     <div class="panel-heading">
                         <h3 class="pt-3 font-weight-bold">Booking.com</h3>
                     </div>
+                    {{#if error}}
+                        <p class="text-danger text-center mb-4 "><strong>{{error}}</strong></p>
+                    {{/if}}
                     <div class="panel-body p-3">
-                        <form id="formLogin" method="POST">
+
                             <div class="form-group py-2">
                                 <div class="input-field"> <span class="far fa-user p-2"></span> <input type="text"
-                                        placeholder="Username or Email" required> </div>
+                                       id="txtEmail" placeholder="Email" name="email"> </div>
                             </div>
                             <div class="form-group py-1 pb-2">
                                 <div class="input-field"> <span class="fas fa-lock px-2"></span> <input type="password"
-                                        placeholder="Enter your Password" required> <button class="btn bg-white text-muted">
+                                        id="txtPassword" placeholder="Password" name="password"> <button class="btn bg-white text-muted">
                                         <span class="far fa-eye-slash"></span> </button> </div>
                             </div>
                             <div class="form-inline"> <input type="checkbox" name="remember" id="remember"> <label
                                     for="remember" class="text-muted">Remember me</label> <a href="#" id="forgot"
                                     class="font-weight-bold">Forgot password?</a> </div>
-                            <div class="btn btn-primary btn-block mt-3">Login</div>
+                            <button class="btn btn-primary btn-block mt-3"
+                                type="submit"> Login
+                            </button>
                             <div class="text-center pt-4 text-muted">Don't have an account? <a href="#">Sign up</a> </div>
-                        </form>
+
                     </div>
                     <div class="mx-3 my-2 py-2 bordert">
                         <div class="text-center py-3"> <a href="https://wwww.facebook.com" target="_blank" class="px-2">
@@ -55,4 +63,27 @@
             </div>
         </div>
     </div>
+</form>
 </body>
+<script>
+        $('#formLogin').on('submit', function (event) {
+            event.preventDefault();
+            const pass = document.getElementById('txtPassword').value;
+            const email = document.getElementById('txtEmail').value;
+            if (email.length < 1) {
+                swal("Please enter your email!");
+                return;
+            }
+            if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+                swal("Please enter valid email!");
+                return;
+            }
+            if (pass.length < 1) {
+                swal("Please enter your password!");
+                return;
+            }
+            // Ajax
+            $('#formLogin').off('submit').submit();
+        });
+        $('#txtFullName').select();
+    </script>

@@ -1,8 +1,13 @@
 const cassandra = require('cassandra-driver');
+
 async function connect() {
     try {
-        const client = new cassandra.Client({
-            contactPoints: ['localhost'], localDataCenter: 'datacenter1', keyspace: 'tst'});
+          const client = new cassandra.Client({
+          contactPoints: ["localhost"],
+          localDataCenter: "datacenter1",
+          keyspace: "dath",
+          port: 9043
+        });
         await client.connect();
         return client;
     }
