@@ -4,12 +4,12 @@
             <ul class = "setting-section-menu">
                 <li class="setting-section-menu-wrapper">
                     <div class="setting-section-menu-list">
-						<button class="setting-section-menu-button" onclick ="editSection('personal_detail')">Personal detail</button>
+						<button class="setting-section-menu-button" onclick ="editSection('personal_detail')" type="personal_submit">Personal detail</button>
 					</div>
                 </li>
                 <li class="setting-section-menu-wrapper-final">
 					<div class="setting-section-menu-list">
-						<button class="setting-section-menu-button" onclick ="editSection('reference')">Reference</button>
+						<button class="setting-section-menu-button" onclick ="editSection('reference')" type="reference_submit">Reference</button>
 					</div>
 				</li>
             </ul>
@@ -38,7 +38,7 @@
 					<div class="row-mt-1 col-md-7">
 						<div class="setting-row-field-value" id="name-value">
 							<div class="col-md-6">
-								<div class="">Some value</div>
+								<div class="name-val"></div>
 							</div>
 						</div>
 
@@ -91,11 +91,6 @@
 						</div>
                     </div>
                 </div>
-
-                <!--- 
-                    TODO: Write 
-                    
-                --->
 
                 <!-- Email address -->
 				<div class="row mt-2 setting-row">
@@ -524,3 +519,5 @@
 			</div>
     </div>
 </div>
+
+{{testData}}

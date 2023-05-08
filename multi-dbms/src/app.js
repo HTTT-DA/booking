@@ -10,11 +10,8 @@ const cors = require('cors');
 const app = express();
 const indexRouter = require('./router');
 const propertyRouter = require('./components/property/router');
-<<<<<<< Updated upstream
 const loginRouter = require('./components/login/router');
-=======
 const profileRouter = require('./components/profile/router');
->>>>>>> Stashed changes
 
 const mongoDB = require('./config/connect-to-mongodb');
 mongoDB.connect().then(() => {
@@ -54,11 +51,8 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/property', propertyRouter);
-<<<<<<< Updated upstream
 app.use('/login', loginRouter);
-=======
 app.use('/profile', profileRouter);
->>>>>>> Stashed changes
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
