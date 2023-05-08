@@ -1,4 +1,5 @@
 // get poolPromise from app.js
+const { query } = require('mssql');
 const { poolPromise } = require('../../config/connect-to-mssql');
 const mongoose = require('mongoose');
 

@@ -81,14 +81,16 @@
 							<label for="checkin_date" class="font-weight-bold text-black">Check In</label>
 							<div class="field-icon-wrap">
 								<div class="icon"><span class="icon-calendar"></span></div>
-								<input type="date" id="checkin_date" name="checkin_date">
+								{{!-- <input type="date" id="checkin_date" name="checkin_date"> --}}
+								<input type="date" name="checkin_date" onchange="$('#checkin_date_display').text(dateValue)">
 							</div>
 						</div>
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-2">
 							<label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
 							<div class="field-icon-wrap">
 								<div class="icon"><span class="icon-calendar"></span></div>
-								<input type="date" id="checkout_date" name="checkout_date">
+								{{!-- <input type="date" id="checkout_date" name="checkout_date"> --}}
+								<input type="date" name="checkout_date" onchange="$('#checkout_date_display').text(dateValue)">
 							</div>
 						</div>
 						<div class="col-md-6 mb-3 mb-md-0 col-lg-2">
@@ -96,19 +98,19 @@
 								<div class="col-md-6 mb-3 mb-md-0">
 									<label for="adults" class="font-weight-bold text-black">Adults</label>
 									<div class="field-icon-wrap">
-										<input type="number" id="adults" name="adults" style="width: 60px;"/>
+										<input type="number" id="adults" name="adults" style="width: 60px;" min="0" value="0"/>
 									</div>
 								</div>
 								<div class="col-md-6 mb-3 mb-md-0">
 									<label for="children" class="font-weight-bold text-black">Children</label>
 									<div class="field-icon-wrap">
-										<input type="number" id="children" name="children" style="width: 60px;"/>
+										<input type="number" id="children" name="children" style="width: 60px;" min="0" value="0"/>
 									</div>
 								</div>
 								<div class="col-md-6 mb-3 mb-md-0">
 									<label for="room" class="font-weight-bold text-black">Room</label>
 									<div class="field-icon-wrap">
-										<input type="number" id="room" name="room" style="width: 60px;"/>
+										<input type="number" id="room" name="room" style="width: 60px;" min="0" value="0"/>
 									</div>
 								</div>
 							</div>
@@ -123,7 +125,7 @@
 					<div class="row">
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-4">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="is_looking_for" name="is_looking_for">
+								<input class="form-check-input" type="checkbox" id="is_looking_for" name="is_looking_for" value="1">
 								<label class="form-check-label" for="is_looking_for">
 									I'm looking for an entire house or apartment
 								</label>
@@ -131,7 +133,7 @@
 						</div>
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" value="" id="is_work" name="is_work">
+								<input class="form-check-input" type="checkbox" value="" id="is_work" name="is_work" value="1">
 								<label class="form-check-label" for="is_work">
 									I'm traveling for work
 								</label>
