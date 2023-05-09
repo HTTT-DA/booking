@@ -4,7 +4,7 @@ const sql = require('mssql');
 const config = {
     user: 'sa',
     password: '1',
-    server: 'LAPTOP-HV4IJC5O',
+    server: 'DESKTOP-G51F95O',
     database: 'BookingWithoutNoSQL',
     options: {
         encrypt: true,

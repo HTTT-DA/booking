@@ -1,10 +1,9 @@
-const cassandra = require("../../config/connect-to-cassandra");
 
-async function getUserByEmail(email) {
+/*async function getUserInformation(userid, information) {
   try {
     const client = await cassandra.connect();
-    const query = "SELECT * FROM customer WHERE email=?";
-    const params = [email];
+    const query = "SELECT ? FROM customer WHERE customer_id = ?";
+    const params = [information, email];
     const result = await client.execute(query, params, {prepare: true});
     return result.rows[0] || null;
   } catch (err) {
@@ -12,5 +11,5 @@ async function getUserByEmail(email) {
   }
 }
 
-module.exports = {getUserByEmail};
+module.exports = {getUserInformation};*/
 

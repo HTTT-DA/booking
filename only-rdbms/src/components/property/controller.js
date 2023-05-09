@@ -5,7 +5,6 @@ const {paging} = require("../../public/js/paging");
 exports.searchProperty = async (req, res) => {
     try {
         const result = await Property.searchProperty(req.query);
-        console.log("query 1");
         res.render("property/views/property-search", { properties: result, paging: paging(req.query.page)})
     } catch (err) {
         res.json(err.message);
