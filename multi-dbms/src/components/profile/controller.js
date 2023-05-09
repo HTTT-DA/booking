@@ -3,7 +3,8 @@ const ProfileModel = new Profile();
 
 exports.render = async (req, res) => {
     try {
-        const information = await ProfileModel.getInformation(1);
+        id = req.session.authUser.customer_id;
+        const information = await ProfileModel.getInformation(id);
         res.render("profile/views/profile", { layout: '/profile/views/profile-layout', information })
     } catch (err) {
         res.json(err.message);
