@@ -1,6 +1,6 @@
 <section style="background-color: #eee;">
 	<div class="container py-5">
-		<h1>{{property.name}}</h1>
+		<h1 id='name_property_detail'>{{property.name}}</h1>
 		<p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>{{property.address}}</p>
 
 		<div class="row">
@@ -76,54 +76,56 @@
 </section>
 
 <section style="background-color: #eee;">
-	<div class="container py-5">
-		<h1>Accommodation</h1>
-		<form id="formReservation" method="post">
-			<table class="table align-middle mb-0 bg-white">
-				<thead class="bg-light">
-					<tr>
-						<th>Accommodation Type</th>
-						<th>Sleeps</th>
-						<th>Today's Price</th>
-						<th>Amount</th>
-					</tr>
-				</thead>
-				<tbody>
-					{{#each accommodations}}
-					<tr>
-						<td>
-							<div class="d-flex align-items-center">
-								<a>
-									<h5><u>{{name}}</u></h5>
-								</a>
-								<p class="small"> {{quantity}} room lefts</p>
-							</div>
-						</td>
-						<td>
-							{{sleeps}} <i class="fa fa-user" aria-hidden="true"></i>
-						</td>
-						<td>
-							<h5 class="mb-1 me-1">${{price_after_sale_off}}</h5>
-							<span class="text-danger"><s>${{price}}</s></span>
-						</td>
-						<td>
-							<label>
-								<input type="number" style="width: 50px" min="0" max="{{quantity}}">
-							</label>
-						</td>
-					</tr>
-					{{/each}}
-					<tr>
-						<td>
-							<button type="submit" class="btn btn-primary btn-sm btn-rounded">
-								<strong>I'll reserve</strong>
-							</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</form>
-	</div>
+	<form method="post">
+		<div class="container py-5">
+			<h1>Accommodation</h1>
+			<form id="formReservation" method="post">
+				<table class="table align-middle mb-0 bg-white">
+					<thead class="bg-light">
+						<tr>
+							<th>Accommodation Type</th>
+							<th>Sleeps</th>
+							<th>Today's Price</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each accommodations}}
+						<tr>
+							<td>
+								<div class="d-flex align-items-center">
+									<a>
+										<h5><u>{{name}}</u></h5>
+									</a>
+									<p class="small"> {{quantity}} room lefts</p>
+								</div>
+							</td>
+							<td>
+								{{sleeps}} <i class="fa fa-user" aria-hidden="true"></i>
+							</td>
+							<td>
+								<h5 id='price_sale_number_{{@index}}' name='price_sale_number_{{@index}}'class="mb-1 me-1">${{price_after_sale_off}}</h5>
+								<span id='price_number_{{@index}}' name="price_number_{{@index}}" class="text-danger"><s>${{price}}</s></span>
+							</td>
+							<td>
+								<label>
+									<input id='quantity_number_{{@index}}' name='quantity_number_{{@index}}' type="number" style="width: 50px" min="0" max="{{quantity}}">
+								</label>
+							</td>
+						</tr>
+						{{/each}}
+						<tr>
+							<td>
+								<button type="submit" class="btn btn-primary btn-sm btn-rounded">
+									<strong>I'll reserve</strong>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</form>
 </section>
 
 <section style="background-color: #eee;">
