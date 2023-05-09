@@ -20,7 +20,7 @@
 <header class="site-header js-site-header">
 	<div class="container-fluid">
 		<div class="row align-items-center">
-			<div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="/">Booking.com</a></div>
+			<div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="/home">Booking.com</a></div>
 			<div class="col-6 col-lg-8">
 				<div class="site-menu-toggle js-site-menu-toggle"  data-aos="fade">
 					<span></span>
@@ -28,18 +28,22 @@
 					<span></span>
 				</div>
 				<!-- END menu-toggle -->
-
 				<div class="site-navbar js-site-navbar">
 					<nav role="navigation">
 						<div class="container">
 							<div class="row full-height align-items-center">
 								<div class="col-md-6 mx-auto">
 									<ul class="list-unstyled menu">
-										<li class="active"><a href="/">Home</a></li>
-										<li><a href="./login">Login</a></li>
+										{{#if auth}}
+											<li class="active"><a>Hello, {{username}} !</a></li>
+											<li><a href="#">About {{username}}</a></li>
+										{{/if}}
+										<li><a href="/home">Home</a></li>
+										{{#unless auth}}
+										<li><a href="/">Login</a></li>
 										<li><a href="#">Register</a></li>
+										{{/unless}}
 										<li><a href="#">Rooms</a></li>
-										<li><a href="#">About</a></li>
 										<li><a href="#">Events</a></li>
 										<li><a href="#">Contact</a></li>
 										<li><a href="#">Reservation</a></li>
