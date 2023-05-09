@@ -1,8 +1,7 @@
-const cassandra = require("../../config/connect-to-cassandra");
+const client = require("../../config/connect-to-cassandra");
 
 async function getUserByEmail(email) {
   try {
-    const client = await cassandra.connect();
     const query = "SELECT * FROM customer WHERE email=?";
     const params = [email];
     const result = await client.execute(query, params, { prepare: true });

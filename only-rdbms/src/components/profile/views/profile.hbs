@@ -22,11 +22,11 @@
 							<div class="col-sm-9">
 								{{#if information.full_name}}
 									<label>
-										<input name="full_name" class="text-muted mb-0" value="{{information.full_name}}">
+										<input name="full_name" class="text-muted mb-0" value="{{information.full_name}}" onchange="updateFullName(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="full_name" class="text-muted mb-0" placeholder="enter your full name">
+										<input name="full_name" class="text-muted mb-0" placeholder="enter your full name" onchange="updateFullName(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -39,11 +39,11 @@
 							<div class="col-sm-9">
 								{{#if information.display_name}}
 									<label>
-										<input name="display_name" class="text-muted mb-0" value="{{information.display_name}}">
+										<input name="display_name" class="text-muted mb-0" value="{{information.display_name}}" onchange="updateDisplayName(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="display_name" class="text-muted mb-0" placeholder="enter your display name">
+										<input name="display_name" class="text-muted mb-0" placeholder="enter your display name" onchange="updateDisplayName(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -56,11 +56,11 @@
 							<div class="col-sm-9">
 								{{#if information.email}}
 									<label>
-										<input name="email" class="text-muted mb-0" value="{{information.email}}">
+										<input name="email" class="text-muted mb-0" value="{{information.email}}" onchange="updateEmail(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="email" class="text-muted mb-0" placeholder="enter your email address">
+										<input name="email" class="text-muted mb-0" placeholder="enter your email address" onchange="updateEmail(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -73,11 +73,11 @@
 							<div class="col-sm-9">
 								{{#if information.phone_number}}
 									<label>
-										<input name="phone_number" class="text-muted mb-0" value="{{information.phone_number}}">
+										<input name="phone_number" class="text-muted mb-0" value="{{information.phone_number}}" onchange="updatePhoneNumber(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="phone_number" class="text-muted mb-0" placeholder="enter your phone number">
+										<input name="phone_number" class="text-muted mb-0" placeholder="enter your phone number" onchange="updatePhoneNumber(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -90,11 +90,11 @@
 							<div class="col-sm-9">
 								{{#if information.date_of_birth}}
 									<label>
-										<input type="date" name="date_of_birth" class="text-muted mb-0" value="{{information.date_of_birth}}">
+										<input type="date" name="date_of_birth" class="text-muted mb-0" value="{{information.date_of_birth}}" onchange="updateDoB(this)">
 									</label>
 								{{else}}
 									<label>
-										<input type="date" name="date_of_birth" class="text-muted mb-0" placeholder="enter your date of birth">
+										<input type="date" name="date_of_birth" class="text-muted mb-0" placeholder="enter your date of birth" onchange="updateDoB(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -107,11 +107,11 @@
 							<div class="col-sm-9">
 								{{#if information.nationality}}
 									<label>
-										<input name="nationality" class="text-muted mb-0" value="{{information.nationality}}">
+										<input name="nationality" class="text-muted mb-0" value="{{information.nationality}}" onchange="updateNationality(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="nationality" class="text-muted mb-0" placeholder="enter your nationality">
+										<input name="nationality" class="text-muted mb-0" placeholder="enter your nationality" onchange="updateNationality(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -124,11 +124,11 @@
 							<div class="col-sm-9">
 								{{#if information.gender }}
 									<label>
-										<input name="gender" class="text-muted mb-0" value="{{information.gender}}">
+										<input name="gender" class="text-muted mb-0" value="{{information.gender}}" onchange="updateGender(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="gender" class="text-muted mb-0" placeholder="enter your phone number">
+										<input name="gender" class="text-muted mb-0" placeholder="enter your phone number" onchange="updateGender(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -141,11 +141,11 @@
 							<div class="col-sm-9">
 								{{#if information.address}}
 									<label>
-										<input name="address" class="text-muted mb-0" value="{{information.address}}">
+										<input name="address" class="text-muted mb-0" value="{{information.address}}" onchange="updateAddress(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="address" class="text-muted mb-0" placeholder="enter your phone number">
+										<input name="address" class="text-muted mb-0" placeholder="enter your phone number" onchange="updateAddress(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -158,5 +158,99 @@
 </section>
 
 <script>
+	function updateFullName(e){
+		fetch('/api/profile/full-name', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				full_name: e.value
+			})
+		}).then(r => r.json()).catch(e => console.log(e));
+	}
 
+    function updateDisplayName(e){
+		fetch('/api/profile/display-name', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				display_name: e.value
+			})
+		}).then(r => r.json()).catch(e => console.log(e));
+	}
+
+    function updateEmail(e){
+		fetch('/api/profile/email', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				email: e.value
+			})
+		}).then(r => r.json()).catch(e => console.log(e));
+	}
+
+	function updatePhoneNumber(e){
+		fetch('/api/profile/phone-number', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				phone_number: e.value
+			})
+		}).then(r => r.json()).catch(e => console.log(e));
+	}
+
+	function updateDoB(e){
+		fetch('/api/profile/dob', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				date_of_birth: e.value
+			})
+		}).then(r => r.json()).catch(e => console.log(e));
+	}
+
+    function updateNationality(e){
+		fetch('/api/profile/nationality', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				nationality: e.value
+			})
+		}).then(r => r.json()).catch(e => console.log(e));
+	}
+
+	function updateGender(e){
+		fetch('/api/profile/gender', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				gender: e.value
+			})
+		}).then(r => r.json()).catch(e => console.log(e));
+	}
+
+	function updateAddress(e){
+		fetch('/api/profile/address', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				address: e.value
+			})
+		}).then(r => r.json()).catch(e => console.log(e));
+	}
 </script>

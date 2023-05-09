@@ -12,17 +12,13 @@ const indexRouter = require('./router');
 const propertyRouter = require('./components/property/router');
 const loginRouter = require('./components/login/router');
 const profileRouter = require('./components/profile/router');
+const apiRouter = require('./api/apiRouter');
 const sessionMiddleware = require("./middlewares/session.mdw");
 
 const mongoDB = require('./config/connect-to-mongodb');
 mongoDB.connect().catch((error) => {
     console.log("Error connecting to MongoDB:", error);
   });
-
-const cassandra = require('./config/connect-to-cassandra');
-cassandra.connect().catch((error) => {
-    console.log("Error connecting to Cassandra:", error);
-});
 
 app.use(sessionMiddleware);
 app.use(express.static(__dirname + '/public'));
@@ -40,6 +36,7 @@ app.use('/', loginRouter);
 app.use('/home', indexRouter);
 app.use('/property', propertyRouter);
 app.use('/profile', profileRouter);
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

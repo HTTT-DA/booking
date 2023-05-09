@@ -65,7 +65,7 @@ module.exports = function () {
         try {
             const pool = await poolPromise;
             const query =
-                `UPDATE dbo.Customer SET phone = '${phone}' WHERE id = ${id}`;
+                `UPDATE dbo.Customer SET phone_number = '${phone}' WHERE id = ${id}`;
             const result = await pool.request().query(query);
             return result.rowsAffected[0];
         }
@@ -104,7 +104,7 @@ module.exports = function () {
         try {
             const pool = await poolPromise;
             const query =
-                `UPDATE dbo.Customer SET nationality = '${gender}' WHERE id = ${id}`;
+                `UPDATE dbo.Customer SET gender = '${gender}' WHERE id = ${id}`;
             const result = await pool.request().query(query);
             return result.rowsAffected[0];
         }

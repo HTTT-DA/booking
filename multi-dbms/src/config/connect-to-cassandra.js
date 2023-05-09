@@ -1,20 +1,16 @@
 const cassandra = require('cassandra-driver');
 
-async function connect() {
-    try {
-          const client = new cassandra.Client({
-          contactPoints: ["localhost"],
-          localDataCenter: "datacenter1",
-          keyspace: "dath",
-          port: 9043
-        });
-        await client.connect();
-        return client;
-    }
-    catch (error) {
-        console.error(error.message);
-        process.exit(-1);
-    }
-}
+const client = new cassandra.Client({
+    contactPoints: ['127.0.0.1'],
+    localDataCenter: 'datacenter1',
+    keyspace: 'dath',
+    port: 9043
+});
 
-module.exports = { connect };
+client.connect((err) => {
+    if (err) {
+        console.error('Failed to connect to Cassandra', err);
+    }
+})
+
+module.exports = client;
