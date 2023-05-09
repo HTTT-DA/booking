@@ -11,6 +11,7 @@ const app = express();
 const indexRouter = require('./router');
 const propertyRouter = require('./components/property/router');
 const loginRouter = require("./components/login/router");
+const profileRouter = require('./components/profile/router');
 
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
@@ -26,6 +27,7 @@ app.use(cors());
 app.use('/', loginRouter);
 app.use('/home', indexRouter);
 app.use('/property', propertyRouter);
+app.use('/profile', profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
