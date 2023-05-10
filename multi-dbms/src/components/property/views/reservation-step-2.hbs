@@ -1,0 +1,55 @@
+<section style="background-color: #eee;">
+    <form id="formReservation" action='./reserve' method="post">
+        <div class="container py-5">
+            <h1>Reservation's Detail</h1>
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Property Name</th>
+                            <th>Address</th>
+                            <th>Price</th>
+                            <th></th>
+                            <th>Date Start</th>
+                            <th>Date End</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <h5>{{property_name}}</h5>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <h5>{{property_address}}</h5>
+                                </div>
+                            </td>
+                            <td>
+                                <h5 class="mb-1 me-1">${{price_sale_off}}</h5>
+                                <span class="text-danger"><s>${{price_total}}</s></span>
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <h5>{{date_start}}</h5>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <h5>{{date_end}}</h5>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-lg mt-4">
+                        <strong>Complete my reservation</strong>
+                    </button>
+                </div>
+        </div>
+    </form>
+</section>

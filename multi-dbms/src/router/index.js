@@ -19,12 +19,12 @@
 const express = require('express');
 const index = express.Router();
 
-const connect = require('../config/connect-to-redis');
+const connect = require("../config/connect-to-redis");
 // const redis = require('redis');
 
 index.get('/', async (req, res) => {
     try {
-      console.log(req.session);
+      // console.log(req.session);
       
       if (req.session.authUser) {
         const userid = req.session.authUser.customer_id;
