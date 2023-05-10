@@ -6,7 +6,11 @@ async function connect() {
             port: 6379
         });
 
+        // console.log(redisClient);
+
         redisClient.on('connect', () => {});
+
+        return redisClient;
     }
     catch (error) {
         console.error(error.message);

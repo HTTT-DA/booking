@@ -48,7 +48,7 @@ exports.validateUser = async (req, res) => {
     req.session.authUser = user;
 
     const url = req.session.retUrl || "/home";
-    console.log(req.session.authUser);
+    // console.log(req.session.authUser);
     res.redirect(url);
   } catch (err) {
     return "Error getting user's email:" + err;

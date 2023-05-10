@@ -48,6 +48,11 @@
 										<li><a href="#">Events</a></li>
 										<li><a href="#">Contact</a></li>
 										<li><a href="#">Reservation</a></li>
+										<li><a href="#">{{data.adults}}</a></li>
+										<li><a href="#">{{data.children}}</a></li>
+										<li><a href="#">{{data.room}}</a></li>
+										<li><a href="#">{{data.is_looking_for_house_and_apartment}}</a></li>
+										<li><a href="#">{{data.is_working}}</a></li>
 										{{#if auth}}
 											<li><a href="/logout">Logout</a></li>
 										{{/if}}
@@ -77,20 +82,20 @@
 	<div class="container">
 		<div class="row check-availabilty" id="next">
 			<div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+			
 				<form action="/property" method="GET">
 					<div class="row">
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
 							<label for="location" class="font-weight-bold text-black">Location</label>
 							<div class="field-icon-wrap">
-								<input type="text" placeholder="Where are you going" id="location" name="location">
+								<input type="text" placeholder="Where are you going" id="location" name="location" value={{data.city}}>
 							</div>
 						</div>
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-2">
 							<label for="checkin_date" class="font-weight-bold text-black">Check In</label>
 							<div class="field-icon-wrap">
 								<div class="icon"><span class="icon-calendar"></span></div>
-								{{!-- <input type="date" id="checkin_date" name="checkin_date"> --}}
-								<input type="date" name="checkin_date" onchange="$('#checkin_date_display')">
+								<input type="date" name="checkin_date" onchange="$('#checkin_date_display')" value={{data.day_start}}>
 							</div>
 						</div>
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-2">
@@ -98,7 +103,7 @@
 							<div class="field-icon-wrap">
 								<div class="icon"><span class="icon-calendar"></span></div>
 								{{!-- <input type="date" id="checkout_date" name="checkout_date"> --}}
-								<input type="date" name="checkout_date" onchange="$('#checkout_date_display')">
+								<input type="date" name="checkout_date" onchange="$('#checkout_date_display')" value={{data.day_end}}>
 
 							</div>
 						</div>
@@ -107,19 +112,19 @@
 								<div class="col-md-6 mb-3 mb-md-0">
 									<label for="adults" class="font-weight-bold text-black">Adults</label>
 									<div class="field-icon-wrap">
-										<input type="number" id="adults" name="adults" style="width: 60px;" min="0" value="0"/>
+										<input type="number" id="adults" name="adults" style="width: 60px;" min="0" value="{{data.adults}}"/>
 									</div>
 								</div>
 								<div class="col-md-6 mb-3 mb-md-0">
 									<label for="children" class="font-weight-bold text-black">Children</label>
 									<div class="field-icon-wrap">
-										<input type="number" id="children" name="children" style="width: 60px;" min="0" value="0"/>
+										<input type="number" id="children" name="children" style="width: 60px;" min="0" value="{{data.children}}"/>
 									</div>
 								</div>
 								<div class="col-md-6 mb-3 mb-md-0">
 									<label for="room" class="font-weight-bold text-black">Room</label>
 									<div class="field-icon-wrap">
-										<input type="number" id="room" name="room" style="width: 60px;" min="0" value="0"/>
+										<input type="number" id="room" name="room" style="width: 60px;" min="0" value="{{data.room}}"/>
 									</div>
 								</div>
 							</div>
@@ -134,6 +139,7 @@
 					<div class="row">
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-4">
 							<div class="form-check">
+								{{!-- if is_looking_for is 1 then this form will be checked by default --}}
 								<input class="form-check-input" type="checkbox" id="is_looking_for" name="is_looking_for" value="checked">
 								<label class="form-check-label" for="is_looking_for">
 									I'm looking for an entire house or apartment
@@ -142,7 +148,8 @@
 						</div>
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="is_work" name="is_work" value="checked">
+								{{!-- if is_work is 1 then this form will be checked by default --}}
+								<input class="form-check-input" type="checkbox" id="is_work" name="is_work" value="checked" >
 								<label class="form-check-label" for="is_work">
 									I'm traveling for work
 								</label>
