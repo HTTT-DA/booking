@@ -14,12 +14,34 @@
 	<link rel="stylesheet" href="/css/fancybox.min.css" type="text/css">
 	<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
 	<link rel="stylesheet" href="/css/login.css" type="text/css">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
-<div class="d-flex justify-content-center align-items-center mt-5 pt-5">
-	{{{ body }}}
-</div>
+	{{{body}}}
 </body>
 
+<script>
+        $('#formLogin').on('submit', function (event) {
+            event.preventDefault();
+            const pass = document.getElementById('txtPassword').value;
+            const email = document.getElementById('txtEmail').value;
+            if (email.length < 1) {
+                swal("Please enter your email!");
+                return;
+            }
+            if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+                swal("Please enter valid email!");
+                return;
+            }
+            if (pass.length < 1) {
+                swal("Please enter your password!");
+                return;
+            }
+            // Ajax
+            $('#formLogin').off('submit').submit();
+        });
+        $('#txtFullName').select();
+    </script>
 </html>

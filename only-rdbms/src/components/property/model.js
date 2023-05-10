@@ -10,9 +10,9 @@ module.exports = function () {
                 `SELECT DISTINCT 
                      Property.name, Property.avatar_url, Property.info, Property.review_count,
                      Property.id, Property.point_avg, Property.rating_star, Property.city,
-                     ROUND(Accomodation.price,1) as price, ROUND((Accomodation.price - Accomodation.sale_off),1) as price_after_sale_off
+                     ROUND(Accommodation.price,1) as price, ROUND((Accommodation.price - Accommodation.sale_off),1) as price_after_sale_off
                  FROM Property
-                     JOIN Accomodation on Property.id = Accomodation.property_id
+                     JOIN Accommodation on Property.id = Accommodation.property_id
                  WHERE [city] LIKE '%${search.location}%' 
                  AND Property.property_type = 'Country houses' OR Property.property_type = 'Apartments'
                  ORDER BY id
@@ -22,15 +22,13 @@ module.exports = function () {
                 `SELECT DISTINCT 
                     Property.name, Property.avatar_url, Property.info, Property.review_count, 
                     Property.id, Property.point_avg, Property.rating_star, Property.city,
-                    ROUND(Accomodation.price, 1) as price, ROUND((Accomodation.price - Accomodation.sale_off),1) as price_after_sale_off
+                    ROUND(Accommodation.price, 1) as price, ROUND((Accommodation.price - Accommodation.sale_off),1) as price_after_sale_off
                  FROM Property
-                    JOIN Accomodation on Property.id = Accomodation.property_id
+                    JOIN Accommodation on Property.id = Accommodation.property_id
                  WHERE [city] LIKE '%${search.location}%' 
                  ORDER BY id
                  OFFSET 0 + 10 * ${search.page - 1} ROWS
                  FETCH NEXT 10 ROWS ONLY`;
-
-            console.log(query);
 
             const result = await pool.request().query(query);
             return result.recordset;
@@ -64,7 +62,7 @@ module.exports = function () {
 
             const queryAccommodationOfProperty =
                 `SELECT name, ROUND(price,1) as price, ROUND((price - sale_off),1) as price_after_sale_off, sleeps, quantity 
-                 FROM Accomodation WHERE property_id = ${id}`;
+                 FROM Accommodation WHERE property_id = ${id}`;
 
             const result = await pool.request().query(queryAccommodationOfProperty);
             return result.recordset;

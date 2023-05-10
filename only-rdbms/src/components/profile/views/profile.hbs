@@ -170,7 +170,7 @@
 		}).then(r => r.json()).catch(e => console.log(e));
 	}
 
-    function updateDisplayName(e){
+	function updateDisplayName(e){
 		fetch('/api/profile/display-name', {
 			method: 'POST',
 			headers: {
@@ -182,7 +182,7 @@
 		}).then(r => r.json()).catch(e => console.log(e));
 	}
 
-    function updateEmail(e){
+	function updateEmail(e){
 		fetch('/api/profile/email', {
 			method: 'POST',
 			headers: {
@@ -218,7 +218,7 @@
 		}).then(r => r.json()).catch(e => console.log(e));
 	}
 
-    function updateNationality(e){
+	function updateNationality(e){
 		fetch('/api/profile/nationality', {
 			method: 'POST',
 			headers: {

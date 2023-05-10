@@ -13,7 +13,9 @@ const propertyRouter = require('./components/property/router');
 const loginRouter = require("./components/login/router");
 const profileRouter = require('./components/profile/router');
 const apiRouter = require('./api/apiRouter');
+const sessionMiddleware = require("./middlewares/session.mdw");
 
+app.use(sessionMiddleware);
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "hbs");
 
