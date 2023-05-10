@@ -37,7 +37,6 @@
 										{{#if auth}}
 											<li class="active"><a>Hello, {{username}} !</a></li>
 											<li><a href="/profile">My Information</a></li>
-											<li><a href="#">List Reservation</a></li>
 										{{/if}}
 										<li><a href="/home">Home</a></li>
 										{{#unless auth}}
@@ -47,8 +46,8 @@
 										<li><a href="#">Rooms</a></li>
 										<li><a href="#">Events</a></li>
 										<li><a href="#">Contact</a></li>
-										<li><a href="#">Reservation</a></li>
 										{{#if auth}}
+											<li><a href="#">List waiting to be booked</a></li>
 											<li><a href="/logout">Logout</a></li>
 										{{/if}}
 									</ul>
