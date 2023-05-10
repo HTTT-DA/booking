@@ -36,8 +36,6 @@ module.exports = function () {
                  OFFSET 0 + 10 * ${search.page - 1} ROWS
                  FETCH NEXT 10 ROWS ONLY`;
 
-                console.log(query);
-
             const result = await pool.request().query(query);
             return result.recordset;
         } catch (err) {
