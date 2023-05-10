@@ -48,11 +48,6 @@
 										<li><a href="#">Events</a></li>
 										<li><a href="#">Contact</a></li>
 										<li><a href="#">Reservation</a></li>
-										<li><a href="#">{{data.adults}}</a></li>
-										<li><a href="#">{{data.children}}</a></li>
-										<li><a href="#">{{data.room}}</a></li>
-										<li><a href="#">{{data.is_looking_for_house_and_apartment}}</a></li>
-										<li><a href="#">{{data.is_working}}</a></li>
 										{{#if auth}}
 											<li><a href="/logout">Logout</a></li>
 										{{/if}}
@@ -107,8 +102,8 @@
 
 							</div>
 						</div>
-						<div class="col-md-6 mb-3 mb-md-0 col-lg-2">
-							<div class="row">
+						
+							<div style="display: flex; width: 200px">
 								<div class="col-md-6 mb-3 mb-md-0">
 									<label for="adults" class="font-weight-bold text-black">Adults</label>
 									<div class="field-icon-wrap">
@@ -127,16 +122,17 @@
 										<input type="number" id="room" name="room" style="width: 60px;" min="0" value="{{data.room}}"/>
 									</div>
 								</div>
-							</div>
-						</div>
-						<label>
+								<label>
 							<input type="text" hidden value="1" name="page">
 						</label>
 						<div class="col-md-6 col-lg-3 align-self-end">
 							<button class="btn btn-info" type="submit">Search</button>
 						</div>
+							</div>
+						
+						
 					</div>
-					<div class="row">
+					<div class="row" style="margin-top: 20px">
 						<div class="col-md-6 mb-3 mb-lg-0 col-lg-4">
 							<div class="form-check">
 								{{!-- if is_looking_for is 1 then this form will be checked by default --}}
