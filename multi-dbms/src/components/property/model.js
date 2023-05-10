@@ -19,7 +19,7 @@ module.exports = function () {
                      ROUND(Property.point_avg, 1) as point_avg, ROUND(Property.price, 1) as price, 
                     ROUND((Property.price - Property.sale_off),1) as price_after_sale_off
                  FROM Property
-                 WHERE [city] = '${search.location}'
+                 WHERE [city] LIKE '%${search.location}%' 
                  AND Property.property_type = 'Country houses' OR Property.property_type = 'Apartments'
                  ORDER BY id
                  OFFSET 0 + 10 * ${search.page - 1} ROWS
@@ -31,10 +31,12 @@ module.exports = function () {
                     ROUND(Property.point_avg, 1) as point_avg, ROUND(Property.price, 1) as price, 
                     ROUND((Property.price - Property.sale_off),1) as price_after_sale_off
                  FROM Property
-                 WHERE [city] = '${search.location}'
+                 WHERE [city] LIKE '%${search.location}%' 
                  ORDER BY id
                  OFFSET 0 + 10 * ${search.page - 1} ROWS
                  FETCH NEXT 10 ROWS ONLY`;
+
+                console.log(query);
 
             const result = await pool.request().query(query);
             return result.recordset;
