@@ -8,25 +8,28 @@
 							 class="rounded-circle img-fluid" style="width: 150px;">
 						<h5 class="my-3">{{information.full_name}}</h5>
 						<p class="text-muted mb-1">{{information.display_name}}</p>
-						<p class="text-muted mb-4">{{information.address}}</p>
+						
+						<button class="btn" value="1" onclick="switchToEditProfile()" id="btn-edit">Edit your profile</button>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-8">
 				<div class="card mb-4">
-					<div class="card-body">
+					<div class="card-body-hide" id="profile_edit">
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Name</p>
+								<div class="mb-0">
+									<div class="profile-detail-title">Name</div>
+								</div>
 							</div>
 							<div class="col-sm-9">
 								{{#if information.full_name}}
 									<label>
-										<input name="full_name" class="text-muted mb-0" value="{{information.full_name}}" onchange="updateFullName(this)">
+										<input name="full_name" class="profile-input-field" value="{{information.full_name}}" onchange="updateFullName(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="full_name" class="text-muted mb-0" placeholder="enter your full name" onchange="updateFullName(this)">
+										<input name="full_name" class="profile-input-field" placeholder="enter your full name" onchange="updateFullName(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -34,16 +37,18 @@
 						<hr>
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Display name</p>
+								<div class="mb-0">
+									<div class="profile-detail-title">Display name</div>
+								</div>
 							</div>
 							<div class="col-sm-9">
 								{{#if information.display_name}}
 									<label>
-										<input name="display_name" class="text-muted mb-0" value="{{information.display_name}}" onchange="updateDisplayName(this)">
+										<input name="display_name" class="profile-input-field" value="{{information.display_name}}" onchange="updateDisplayName(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="display_name" class="text-muted mb-0" placeholder="enter your display name" onchange="updateDisplayName(this)">
+										<input name="display_name" class="profile-input-field" placeholder="enter your display name" onchange="updateDisplayName(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -51,16 +56,18 @@
 						<hr>
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Email address</p>
+								<div class="mb-0">
+									<div class="profile-detail-title">Email address</div>
+								</div>
 							</div>
 							<div class="col-sm-9">
 								{{#if information.email}}
 									<label>
-										<input name="email" class="text-muted mb-0" value="{{information.email}}" onchange="updateEmail(this)">
+										<input name="email" class="profile-input-field" value="{{information.email}}" onchange="updateEmail(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="email" class="text-muted mb-0" placeholder="enter your email address" onchange="updateEmail(this)">
+										<input name="email" class="profile-input-field" placeholder="enter your email address" onchange="updateEmail(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -68,16 +75,18 @@
 						<hr>
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Phone number</p>
+								<div class="mb-0">
+									<div class="profile-detail-title">Phone number</div>
+								</div>
 							</div>
 							<div class="col-sm-9">
 								{{#if information.phone_number}}
 									<label>
-										<input name="phone_number" class="text-muted mb-0" value="{{information.phone_number}}" onchange="updatePhoneNumber(this)">
+										<input name="phone_number" class="profile-input-field" value="{{information.phone_number}}" onchange="updatePhoneNumber(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="phone_number" class="text-muted mb-0" placeholder="enter your phone number" onchange="updatePhoneNumber(this)">
+										<input name="phone_number" class="profile-input-field" placeholder="enter your phone number" onchange="updatePhoneNumber(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -85,16 +94,18 @@
 						<hr>
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Date of birth</p>
+								<div class="mb-0">
+									<div class="profile-detail-title">Date of birth</div>
+								</div>
 							</div>
 							<div class="col-sm-9">
 								{{#if information.date_of_birth}}
 									<label>
-										<input type="date" name="date_of_birth" class="text-muted mb-0" value="{{information.date_of_birth}}" onchange="updateDoB(this)">
+										<input type="date" name="date_of_birth" class="profile-input-field" value="{{information.date_of_birth}}" onchange="updateDoB(this)">
 									</label>
 								{{else}}
 									<label>
-										<input type="date" name="date_of_birth" class="text-muted mb-0" placeholder="enter your date of birth" onchange="updateDoB(this)">
+										<input type="date" name="date_of_birth" class="profile-input-field" placeholder="enter your date of birth" onchange="updateDoB(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -102,16 +113,18 @@
 						<hr>
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Nationality</p>
+								<div class="mb-0">
+									<div class="profile-detail-title">Nationality</div>
+								</div>
 							</div>
 							<div class="col-sm-9">
 								{{#if information.nationality}}
 									<label>
-										<input name="nationality" class="text-muted mb-0" value="{{information.nationality}}" onchange="updateNationality(this)">
+										<input name="nationality" class="profile-input-field" value="{{information.nationality}}" onchange="updateNationality(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="nationality" class="text-muted mb-0" placeholder="enter your nationality" onchange="updateNationality(this)">
+										<input name="nationality" class="profile-input-field" placeholder="enter your nationality" onchange="updateNationality(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -119,16 +132,18 @@
 						<hr>
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Gender</p>
+								<div class="mb-0">
+									<div class="profile-detail-title">Gender</div>
+								</div>
 							</div>
 							<div class="col-sm-9">
 								{{#if information.gender }}
 									<label>
-										<input name="gender" class="text-muted mb-0" value="{{information.gender}}" onchange="updateGender(this)">
+										<input name="gender" class="profile-input-field" value="{{information.gender}}" onchange="updateGender(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="gender" class="text-muted mb-0" placeholder="enter your phone number" onchange="updateGender(this)">
+										<input name="gender" class="profile-input-field" placeholder="enter your phone number" onchange="updateGender(this)">
 									</label>
 								{{/if}}
 							</div>
@@ -136,18 +151,112 @@
 						<hr>
 						<div class="row">
 							<div class="col-sm-3">
-								<p class="mb-0">Address</p>
+								<div class="mb-0">
+									<div class="profile-detail-title">Address</div>
+								</div>
 							</div>
 							<div class="col-sm-9">
 								{{#if information.address}}
 									<label>
-										<input name="address" class="text-muted mb-0" value="{{information.address}}" onchange="updateAddress(this)">
+										<input name="address" class="profile-input-field" value="{{information.address}}" onchange="updateAddress(this)">
 									</label>
 								{{else}}
 									<label>
-										<input name="address" class="text-muted mb-0" placeholder="enter your phone number" onchange="updateAddress(this)">
+										<input name="address" class="profile-input-field" placeholder="enter your phone number" onchange="updateAddress(this)">
 									</label>
 								{{/if}}
+							</div>
+						</div>
+					</div>
+
+					<div class="card-body" id="profile_display">
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="mb-0">
+									<div class="profile-detail-title">Name</div>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="profile_detail_value">{{information.full_name}}</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="mb-0">
+									<div class="profile-detail-title">Display name</div>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="profile_detail_value">{{information.display_name}}</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="mb-0">
+									<div class="profile-detail-title">Email address</div>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="profile_detail_value">{{information.email}}</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="mb-0">
+									<div class="profile-detail-title">Phone number</div>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="profile_detail_value">{{information.phone_number}}</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="mb-0">
+									<div class="profile-detail-title">Date of birth</div>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="col-sm-9">
+									<div class="profile_detail_value">{{information.date_of_birth}}</div>
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="mb-0">
+									<div class="profile-detail-title">Nationality</div>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="profile_detail_value">{{information.nationality}}</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="mb-0">
+									<div class="profile-detail-title">Gender</div>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="profile_detail_value">{{information.gender}}</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-sm-3">
+								<div class="mb-0">
+									<div class="profile-detail-title">Address</div>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="profile_detail_value">{{information.address}}</div>
 							</div>
 						</div>
 					</div>
@@ -168,9 +277,11 @@
 				full_name: e.value
 			})
 		}).then(r => r.json()).catch(e => console.log(e));
+
+		alert('Update Full name complete');
 	}
 
-	function updateDisplayName(e){
+    function updateDisplayName(e){
 		fetch('/api/profile/display-name', {
 			method: 'POST',
 			headers: {
@@ -180,9 +291,11 @@
 				display_name: e.value
 			})
 		}).then(r => r.json()).catch(e => console.log(e));
+
+		alert('Update Display name complete');
 	}
 
-	function updateEmail(e){
+    function updateEmail(e){
 		fetch('/api/profile/email', {
 			method: 'POST',
 			headers: {
@@ -192,6 +305,8 @@
 				email: e.value
 			})
 		}).then(r => r.json()).catch(e => console.log(e));
+
+		alert('Update Email complete');
 	}
 
 	function updatePhoneNumber(e){
@@ -204,6 +319,8 @@
 				phone_number: e.value
 			})
 		}).then(r => r.json()).catch(e => console.log(e));
+
+		alert('Update Phone number complete');
 	}
 
 	function updateDoB(e){
@@ -216,9 +333,11 @@
 				date_of_birth: e.value
 			})
 		}).then(r => r.json()).catch(e => console.log(e));
+
+		alert('Update Date of birth complete');
 	}
 
-	function updateNationality(e){
+    function updateNationality(e){
 		fetch('/api/profile/nationality', {
 			method: 'POST',
 			headers: {
@@ -228,6 +347,8 @@
 				nationality: e.value
 			})
 		}).then(r => r.json()).catch(e => console.log(e));
+
+		alert('Update Nationality complete');
 	}
 
 	function updateGender(e){
@@ -240,6 +361,8 @@
 				gender: e.value
 			})
 		}).then(r => r.json()).catch(e => console.log(e));
+
+		alert('Update Gender complete');
 	}
 
 	function updateAddress(e){
@@ -252,5 +375,7 @@
 				address: e.value
 			})
 		}).then(r => r.json()).catch(e => console.log(e));
+
+		alert('Update Address complete');
 	}
 </script>

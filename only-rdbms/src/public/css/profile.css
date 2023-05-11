@@ -1,0 +1,34 @@
+ .profile-detail-title {
+    min-width: 146px;
+    overflow-x: hidden;
+    position: relative;
+    white-space: normal;
+    width: 146px;
+    padding-left: 25px;
+    font-size: 18px;
+    color: #1a1a1a;
+  }
+  
+  .profile_detail_value {
+    padding-left: 16px;
+    font-size: 20px;
+    color: #1a1a1a;
+    padding-top: 10px;
+  }
+  
+  .profile-input-field {
+    display: block;
+    align-items: center;
+    width: 150%;
+    padding: 5px 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .btn:hover {
+    border-color: red;
+  }
+
+  .card-body-hide {
+    display: none;
+  }
