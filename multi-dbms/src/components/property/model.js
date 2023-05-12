@@ -66,7 +66,7 @@ module.exports = function () {
         try {
           const client = await connect.connect();
           const keyHMSET = "Room:" + user_id;
-          const keyZADD = "Accommodations:" + user_id;
+          const keyZADD = "Customer:" + user_id;
           const membersToAdd = [
             1,
             accommodations[0].quantity,
